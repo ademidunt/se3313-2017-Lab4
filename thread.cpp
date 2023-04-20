@@ -20,6 +20,11 @@ Thread::~Thread()
         std::cout << "Th: Unable to properly terminate thread" << std::endl;
 }
 
+void Thread::Start()
+{
+    theThread.detach();
+}
+
 void ThreadFunction(void * me)
 {
     // The parameter was the "this" pointer, passed in Thread::Start.  It can

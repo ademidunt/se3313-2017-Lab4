@@ -53,6 +53,8 @@ public:
     int Write(ByteArray const & buffer);
     int Read(ByteArray & buffer);
     void Close(void);
+    bool Peek(void);
+    int GetHandle(void);
 };
 };
 #endif // SOCKET_H

@@ -26,6 +26,8 @@ public:
     Thread(int exitTimeout = 1000);
     virtual ~Thread();
 
+    void Start();
+
     // Override this function in your threads
     virtual long ThreadMain(void) = 0;
 };

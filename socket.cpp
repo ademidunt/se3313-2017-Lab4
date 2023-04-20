@@ -108,4 +108,24 @@ void Socket::Close(void)
     terminator.Trigger();
 
 }
+int Socket::GetHandle(void)
+{
+    return GetFD();
+}
 };
+
+
+bool Sync::Socket::Peek(void)
+{
+    fd_set readfds;
+    FD_ZERO(&readfds);
+    FD_SET(GetFD(), &readfds);
+    timeval timeout = { 0, 0 };
+    int result = select(GetFD() + 1, &readfds, NULL, NULL, &timeout);
+    if (result < 0)
+    {
+        throw std::string("Error while calling select() function");
+    }
+    return (result == 1);
+}
+
