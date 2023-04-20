@@ -119,12 +119,15 @@ int main(void)
 {
 	std::cout << "I am a client" << std::endl;
 	bool alive = true;
-	
+
+
 	// Create socket
 	Socket socket("127.0.0.1", 3000);
 	ClientThread clientThread(socket, alive);
 	ServerListenerThread listenerThread(socket, alive);
 	socket.Open();
+
+
 	
 	// clientThread.Start();
 	// listenerThread.Start();
